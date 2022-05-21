@@ -1,9 +1,15 @@
 :root {
     font-size: 10px;
     --header-bg-color: #ef4444;
+    --close-form-color: rgb(231, 96, 73);
+    --submit-form-color: rgb(108, 240, 82);
     --side-bar-bg-color: #faea74;
     --content-bg-color: #b5ecc9;
     --card-bg-color: #16a34a;
+    --form-bg-color: #475245;
+    --card-bar-basic-color: #12813b;
+    --card-bar-hover-color: #a2ff00;
+    --error-msg-color: rgb(248, 89, 89);
     --header-font-family: 'NewShapeBookOblique';
     --side-bar-font-family: 'RobotoCondensedRegular';
     --content-font-family: 'RobotoCondensedRegular';
@@ -12,24 +18,37 @@
 body {
     margin: 0px;
     display: grid;
-    grid-template: 15vh 85vh / 20vw 80vw;
+    grid-template: 15vh 85vh / 24vw 76vw;
 }
 
 .header {
     grid-area: 1/1/2/3;
-    background-color: var(--header-bg-color);
+    /* background-color: var(--header-bg-color); */
     font-family: var(--header-font-family);
-    font-size: 5rem;
+    font-size: 5.3rem;
+    font-weight: 900;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url('./images/header-pic.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.title-text {
+    background-color: rgba(188, 228, 135, 0.589);
+    padding: .1rem 1.9rem;
+    border-radius: 1rem;
 }
 
 .side-bar {
     grid-area: 2/1/3/2;
-    background-color: var(--side-bar-bg-color);
+    /* background-color: var(--side-bar-bg-color); */
+    background-image: url('./images/side-bar-pic.jpg');
+    background-size: cover;
+    background-position: right;
     font-family: var(--side-bar-font-family);
-    font-size: 2rem;
+    font-size: 1.8rem;
     display: flex;
     flex-direction: column;
     gap: 3rem;
@@ -39,12 +58,18 @@ body {
 .details-title {
     font-size: 2.5rem;
     font-family: var(--header-font-family);
+    background-color: rgb(188, 228, 135);
+    padding: .4rem 1.2rem;
+    border-radius: 1.5rem;
 }
 
 .detail {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: rgb(188, 228, 135);
+    padding: .4rem 1.2rem;
+    border-radius: 1.5rem;
 }
 
 .content {
@@ -52,4 +77,149 @@ body {
     font-family: var(--content-font-family);
     background-image: url('./images/content-bg-pic.jpg');
     background-size: cover;
+    position: relative;
+    padding: .8rem;
+}
+
+.add-book {
+    background-color: transparent;
+    border-width: 0px;
+}
+
+
+#add-book {
+    width: 3.8rem;
+    height: auto;
+    transition: transform 0.39s ease-in-out;
+    transform: rotate(0turn);
+    transform: scale(1);
+}
+
+#add-book:hover {
+    transition: transform 0.39s ease-in-out;
+    transform: scale(1.1) rotate(0.5turn);
+}
+
+#add-book:active {
+    transition: transform 0.19s ease-in-out;
+    transform: scale(0.9) rotate(0.5turn);
+}
+
+.form-container {
+    display: none;
+    position: absolute;
+    border-width: 0px;
+    width: 30vw;
+    height:fit-content;
+    margin: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    z-index: 1;
+    background-color: var(--form-bg-color);
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.589);
+}
+
+#book-form {
+    display: grid;
+    gap: 1.5rem;
+    grid-template: repeat(auto-fit, minmax(2rem, 1fr));
+    
+}
+
+.form-btns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.submit-form,
+.close-form {
+    border-width: 0px;
+    border-radius: 1.5rem;
+    font-size: 1.4rem;
+    padding: .7rem 1.3rem;
+    font-family: var(--content-font-family);
+    font-weight: 600;
+    letter-spacing: .1rem;
+    transition: transform 0.2s ease-in-out;
+    transform: scale(1);
+}
+
+.submit-form {
+    background-color: var(--submit-form-color);
+}
+
+.close-form {
+    background-color: var(--close-form-color);
+}
+
+.close-form:hover,
+.submit-form:hover {
+    transition: transform 0.2s ease-in-out;
+    transform: scale(1.1);
+}
+
+.close-form:active,
+.submit-form:active {
+    transition: transform 0.2s ease-in-out;
+    transform: scale(0.9);
+}
+
+label {
+    font-size: 2rem;
+    font-family: var(--content-font-family);
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.error {
+    color: var(--error-msg-color);
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 300px));
+    gap: 1.5rem;
+    padding: 2rem;
+    font-family: var(--content-font-family);
+    font-size: 1.7rem;
+}
+
+.card {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: .5rem;
+    background-color: var(--card-bg-color);
+    border-width: 0px;
+    border-radius: 1rem 1.5rem 1.5rem 1rem;
+    text-align: left;
+    padding: 2rem;
+    position: relative;
+    height: auto;
+}
+
+.over {
+    transition: background-color 0.38s ease-in-out;
+    background-color:var(--card-bar-hover-color);
+}
+
+.not-over {
+    transition: background-color 0.38s ease-in-out;
+    background-color: var(--card-bar-basic-color);
+}
+
+.card-bar {
+    height: 100%;
+    width: 1rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 1.5rem 0rem 0rem 1.5rem;
+}
+
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 6rem;
+  height: 3.4rem;
 }
