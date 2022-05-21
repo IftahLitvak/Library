@@ -1,19 +1,14 @@
 
 
-function Book(title, author, pagesNum, read){
+let myLibrary = [];
+
+function Book(title, author, pagesNum, pagesRead){
     this.title = title;
     this.author = author;
     this.pagesNum = pagesNum;
-    this.read = read;
+    this.pagesRead = pagesRead;
     this.info = function () {
-      let readStr = '';
-      if (read){
-        readStr = 'already read';
-      }
-      else {
-        readStr = 'not read yet';
-      }
-      return title + " by " + author + ", " + pagesNum + ", " + readStr;
+      return 'Book Title: ' + title + '\n' + "Book Author: " + author + "\n" + "Total Book Pages" + pagesNum +
+       "\n" + 'Pages Read: ' + pagesRead;
     }
-    console.log(this.info());
   }
