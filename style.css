@@ -1,0 +1,55 @@
+:root {
+    font-size: 10px;
+    --header-bg-color: #ef4444;
+    --side-bar-bg-color: #faea74;
+    --content-bg-color: #b5ecc9;
+    --card-bg-color: #16a34a;
+    --header-font-family: 'NewShapeBookOblique';
+    --side-bar-font-family: 'RobotoCondensedRegular';
+    --content-font-family: 'RobotoCondensedRegular';
+}
+
+body {
+    margin: 0px;
+    display: grid;
+    grid-template: 15vh 85vh / 20vw 80vw;
+}
+
+.header {
+    grid-area: 1/1/2/3;
+    background-color: var(--header-bg-color);
+    font-family: var(--header-font-family);
+    font-size: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.side-bar {
+    grid-area: 2/1/3/2;
+    background-color: var(--side-bar-bg-color);
+    font-family: var(--side-bar-font-family);
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 1.5rem;
+}
+
+.details-title {
+    font-size: 2.5rem;
+    font-family: var(--header-font-family);
+}
+
+.detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content {
+    grid-area: 2/2/3/3;
+    font-family: var(--content-font-family);
+    background-image: url('./images/content-bg-pic.jpg');
+    background-size: cover;
+}
