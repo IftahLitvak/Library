@@ -1,17 +1,16 @@
 
 
 
-
+// Global Varibales
 let myLibrary = [];
 let totalBooks = 0;
 let totalBookRead = 0;
 let totalBookPages = 0;
 let totalBookPagesRead = 0;
 let valid = true;
+
+// HTML Elements Control
 const cardsDiv = document.querySelector('.cards');
-addBookToLibrary();
-
-
 const addBookBtn = document.querySelector('.add-book');
 const closeFormBtn = document.querySelector('.close-form');
 const submitFormBtn = document.querySelector('.submit-form');
@@ -65,6 +64,7 @@ function addBookToArr() {
   }
 }
 
+// Checking if user entered valid inputs and handels the error divs
 function checkValidInputs() {
   valid = true;
   let totalPages=-1;
@@ -107,7 +107,7 @@ function checkValidInputs() {
         else {
           input.nextElementSibling.style.display = 'none';
           totalRead = input.value;
-          if (totalPages != -1) {
+          if (totalPages != -1) { // checking to see if there is a total pages input
             if (totalRead > totalPages){
               valid = false;
               input.parentNode.children.item(2).style.display = 'block';
@@ -124,9 +124,9 @@ function checkValidInputs() {
         break;
     }
   });
-  
 }
 
+// Displaying The Books on the Cards Div and Creating the Cards Elements
 function addBookToLibrary() {
     cardsDiv.innerHTML = '';
     myLibrary.forEach(book => {
@@ -168,6 +168,7 @@ function addBookToLibrary() {
     updateSideBarInfo();
 }
 
+// Deleting A Book From the Library
 function removeBookFromArray(e){
   const currCard = e.target.parentElement;
   const currCardChildren = currCard.children;
@@ -181,6 +182,7 @@ function removeBookFromArray(e){
   addBookToLibrary();
 }
 
+// Changing The Read state and updates the pages read number accordingly
 function changeReadState(e){
   // &#10005; -- X ::::: &#10003; -- V
   const currLable = e.target.parentElement;
@@ -208,6 +210,7 @@ function changeReadState(e){
   updateSideBarInfo();
 }
 
+// Updates the side bar information
 function updateSideBarInfo(){
   totalBookPages = 0;
   totalBookPagesRead = 0;

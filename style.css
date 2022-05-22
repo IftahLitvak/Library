@@ -23,9 +23,9 @@ body {
     grid-template: 15vh 85vh / 24vw 76vw;
 }
 
+/* ---------Header Style--------- */
 .header {
     grid-area: 1/1/2/3;
-    /* background-color: var(--header-bg-color); */
     font-family: var(--header-font-family);
     font-size: 5.3rem;
     font-weight: 900;
@@ -43,6 +43,7 @@ body {
     border-radius: 1rem;
 }
 
+/* ---------Side Bar Style--------- */
 .side-bar {
     grid-area: 2/1/3/2;
     /* background-color: var(--side-bar-bg-color); */
@@ -74,6 +75,7 @@ body {
     border-radius: 1.5rem;
 }
 
+/* ---------Content Style--------- */
 .content {
     grid-area: 2/2/3/3;
     font-family: var(--content-font-family);
@@ -107,6 +109,7 @@ body {
     transform: scale(0.9) rotate(0.5turn);
 }
 
+/* ---------Form Style--------- */
 .form-container {
     display: none;
     position: absolute;
@@ -183,6 +186,7 @@ body {
     bottom: 0px;
 }
 
+/* ---------Book Cards Style--------- */
 .cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 300px));
@@ -256,11 +260,9 @@ body {
     cursor: pointer;
 }
 
-
 .switch-text {
     position: absolute;
     bottom: 3.9rem;
-    /* right: 2.6rem; */
     font-size: 1.2rem;
     font-weight: 600;
 }
@@ -303,6 +305,6 @@ body {
     box-shadow: 0 0 .1rem var(--read-checked-color);
 }
   
-  .toggle-checkbox:checked + .toggle-switch:before {
+.toggle-checkbox:checked + .toggle-switch:before {
     transform: translateX(2.6rem);
-  }
+}
